@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_45" class="java.beans.XMLDecoder">
+ <object class="skillcourt.SequenceFile" id="SequenceFile0">
+  <void property="grids">
+   <void method="add">
+    <object class="skillcourt.GridInfo">
+     <void property="cols">
+      <int>4</int>
+     </void>
+     <void property="gridName">
+      <string>North</string>
+     </void>
+     <void property="rows">
+      <int>3</int>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="skillcourt.GridInfo">
+     <void property="cols">
+      <int>5</int>
+     </void>
+     <void property="gridName">
+      <string>South</string>
+     </void>
+     <void property="rows">
+      <int>5</int>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="info">
+   <void method="put">
+    <string>SequenceNam</string>
+    <string>Sequence1</string>
+   </void>
+   <void method="put">
+    <string>Author</string>
+    <string>Luis Puche</string>
+   </void>
+  </void>
+  <void property="steps">
+   <void method="add">
+    <object class="skillcourt.Step" id="Step0">
+     <void property="duration">
+      <long>3</long>
+     </void>
+     <void property="interval">
+      <long>3</long>
+     </void>
+     <void property="tileCommands">
+      <void method="add">
+       <object class="skillcourt.GridCommand">
+        <void property="b">
+         <int>255</int>
+        </void>
+        <void property="col">
+         <int>1</int>
+        </void>
+        <void property="g">
+         <int>0</int>
+        </void>
+        <void property="name">
+         <string>North</string>
+        </void>
+        <void property="r">
+         <int>0</int>
+        </void>
+        <void property="row">
+         <int>1</int>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="skillcourt.GridCommand">
+        <void property="b">
+         <int>0</int>
+        </void>
+        <void property="col">
+         <int>1</int>
+        </void>
+        <void property="g">
+         <int>255</int>
+        </void>
+        <void property="name">
+         <string>South</string>
+        </void>
+        <void property="r">
+         <int>255</int>
+        </void>
+        <void property="row">
+         <int>1</int>
+        </void>
+       </object>
+      </void>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="skillcourt.Step" id="Step1">
+     <void property="duration">
+      <long>2</long>
+     </void>
+     <void property="interval">
+      <long>3</long>
+     </void>
+     <void property="tileCommands">
+      <void method="add">
+       <object class="skillcourt.GridCommand">
+        <void property="b">
+         <int>255</int>
+        </void>
+        <void property="col">
+         <int>0</int>
+        </void>
+        <void property="g">
+         <int>0</int>
+        </void>
+        <void property="name">
+         <string>North</string>
+        </void>
+        <void property="r">
+         <int>0</int>
+        </void>
+        <void property="row">
+         <int>0</int>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="skillcourt.GridCommand">
+        <void property="b">
+         <int>0</int>
+        </void>
+        <void property="col">
+         <int>1</int>
+        </void>
+        <void property="g">
+         <int>255</int>
+        </void>
+        <void property="name">
+         <string>South</string>
+        </void>
+        <void property="r">
+         <int>255</int>
+        </void>
+        <void property="row">
+         <int>1</int>
+        </void>
+       </object>
+      </void>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>
