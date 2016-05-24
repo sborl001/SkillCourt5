@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nifty>
+    <useControls filename="nifty-default-controls.xml"/>
+    <useStyles filename="nifty-default-styles.xml"/>
+   <screen id="North" controller="view.North">
+        <layer id="LNorth" childLayout="absolute">
+            <panel id="PNorth" childLayout="absolute" backgroundColor="#00ccccff" width="713px" x="80" y="23" style="nifty-panel-simple" height="713px">
+           <control name="button" id="00" childLayout="center" backgroundColor="#666666ff" width="60px" x="80" y="60" label="00" height="60px"/>
+           <control name="button" id="01" childLayout="center" backgroundColor="#666666ff" width="60px" x="160" y="60" label="01" height="60px"/>
+           <control name="button" id="02" childLayout="center" backgroundColor="#666666ff" width="60px" x="240" y="60" label="02" height="60px"/>
+           <control name="button" id="03" childLayout="center" backgroundColor="#666666ff" width="60px" x="320" y="60" label="03" height="60px"/>
+           <control name="button" id="04" childLayout="center" backgroundColor="#666666ff" width="60px" x="400" y="60" label="04" height="60px"/>
+           <control name="button" id="10" childLayout="center" backgroundColor="#666666ff" width="60px" x="80" y="140" label="10" height="60px"/>
+           <control name="button" id="11" childLayout="center" backgroundColor="#666666ff" width="60px" x="160" y="140" label="11" height="60px"/>
+           <control name="button" id="12" childLayout="center" backgroundColor="#666666ff" width="60px" x="240" y="140" label="12" height="60px"/>
+           <control name="button" id="13" childLayout="center" backgroundColor="#666666ff" width="60px" x="320" y="140" label="13" height="60px"/>
+           <control name="button" id="14" childLayout="center" backgroundColor="#666666ff" width="60px" x="400" y="140" label="14" height="60px"/>
+           <control name="button" id="20" childLayout="center" backgroundColor="#666666ff" width="60px" x="80" y="220" label="20" height="60px"/>
+           <control name="button" id="21" childLayout="center" backgroundColor="#666666ff" width="60px" x="160" y="220" label="21" height="60px"/>
+           <control name="button" id="22" childLayout="center" backgroundColor="#666666ff" width="60px" x="240" y="220" label="22" height="60px"/>
+           <control name="button" id="23" childLayout="center" backgroundColor="#666666ff" width="60px" x="320" y="220" label="23" height="60px"/>
+           <control name="button" id="24" childLayout="center" backgroundColor="#666666ff" width="60px" x="400" y="220" label="24" height="60px"/>
+           <control name="button" id="30" childLayout="center" backgroundColor="#666666ff" width="60px" x="80" y="300" label="30" height="60px"/>
+           <control name="button" id="31" childLayout="center" backgroundColor="#666666ff" width="60px" x="160" y="300" label="31" height="60px"/>
+           <control name="button" id="32" childLayout="center" backgroundColor="#666666ff" width="60px" x="240" y="300" label="32" height="60px"/>
+           <control name="button" id="33" childLayout="center" backgroundColor="#666666ff" width="60px" x="320" y="300" label="33" height="60px"/>
+           <control name="button" id="34" childLayout="center" backgroundColor="#666666ff" width="60px" x="400" y="300" label="34" height="60px"/>
+           <control name="button" id="40" childLayout="center" backgroundColor="#666666ff" width="60px" x="80" y="380" label="40" height="60px"/>
+           <control name="button" id="41" childLayout="center" backgroundColor="#666666ff" width="60px" x="160" y="380" label="41" height="60px"/>
+           <control name="button" id="42" childLayout="center" backgroundColor="#666666ff" width="60px" x="240" y="380" label="42" height="60px"/>
+           <control name="button" id="43" childLayout="center" backgroundColor="#666666ff" width="60px" x="320" y="380" label="43" height="60px"/>
+           <control name="button" id="44" childLayout="center" backgroundColor="#666666ff" width="60px" x="400" y="380" label="44" height="60px"/>
+           <control name="button" id="50" childLayout="center" backgroundColor="#666666ff" width="60px" x="80" y="460" label="50" height="60px"/>
+           <control name="button" id="51" childLayout="center" backgroundColor="#666666ff" width="60px" x="160" y="460" label="51" height="60px"/>
+           <control name="button" id="52" childLayout="center" backgroundColor="#666666ff" width="60px" x="240" y="460" label="52" height="60px"/>
+           <control name="button" id="53" childLayout="center" backgroundColor="#666666ff" width="60px" x="320" y="460" label="53" height="60px"/>
+           <control name="button" id="54" childLayout="center" backgroundColor="#666666ff" width="60px" x="400" y="460" label="54" height="60px"/>
+            </panel>
+        </layer>
+    </screen>
+</nifty>
+
