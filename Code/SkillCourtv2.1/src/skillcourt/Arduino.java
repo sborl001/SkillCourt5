@@ -96,7 +96,7 @@ public class Arduino implements SerialPortEventListener {
             output.write(data.getBytes());
         } catch (Exception e) {
             System.err.println(e.toString());
-            System.exit(0);
+            //System.exit(0);
         }
     }
 
@@ -118,7 +118,8 @@ public class Arduino implements SerialPortEventListener {
         try {
             switch (oEvent.getEventType()) {
                 case SerialPortEvent.DATA_AVAILABLE:
-                    if (input == null) {
+                    if (input == null) 
+                    {
                         input = new BufferedReader(
                                 new InputStreamReader(
                                         serialPort.getInputStream()));
