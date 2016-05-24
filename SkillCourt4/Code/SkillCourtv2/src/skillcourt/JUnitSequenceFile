@@ -1,0 +1,104 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+
+import junit.framework.TestCase;
+
+
+public class JUnitSequenceFile extends TestCase {
+
+	
+	
+	protected static void setUpBeforeClass() throws Exception {
+		
+		
+	}
+
+
+	public void testGetInfo() {
+		
+		SequenceFile test = new SequenceFile();
+		
+		HashMap<String, String> info = new HashMap<String, String>();
+		info.put("Author", "Luis Puche");
+		info.put("Type", "Standard");
+		info.put("Name", "FirstSave");
+		
+		test = new SequenceFile(info,null,null);
+		
+	    assertEquals("Must get the info properly", info, test.getInfo());
+		
+	}
+
+
+	public void testGetGrids() {
+		
+		SequenceFile test = new SequenceFile();
+		LinkedList<GridInfo> grids = new LinkedList<GridInfo>();
+		grids.add(new GridInfo("North", 10, 8));
+		grids.add(new GridInfo("South", 14, 12));
+		
+		test = new SequenceFile(null,grids,null);
+		
+	    assertEquals("Must get the info properly", grids, test.getGrids());
+	}
+
+
+	public void testGetSteps() throws Exception {
+		SequenceFile test = new SequenceFile();
+
+
+		Step testStep = new Step(0L,0L);
+
+		
+		Step testStep2 = new Step(10L, 20L);
+		GridCommand testCommand3 = new GridCommand("North",0,0,255,0,0,0);
+		GridCommand testCommand4 = new GridCommand("South",1,2,255,255,0,1);
+		testStep2.addCommand(testCommand3);
+		testStep2.addCommand(testCommand4);
+		LinkedList<Step> steps = new LinkedList<Step>();
+		steps.add(testStep);
+		steps.add(testStep2);
+		
+		
+		test = new SequenceFile(null,null,steps);
+		
+	    assertEquals("Must get the info properly", steps, test.getSteps());
+	}
+
+
+	public void testExportFile() throws Exception {
+		
+		Step testStep = new Step(0L,0L);
+
+		
+		Step testStep2 = new Step(10L, 20L);
+		GridCommand testCommand3 = new GridCommand("North",0,0,255,0,0,0);
+		GridCommand testCommand4 = new GridCommand("South",1,2,255,255,0,1);
+		testStep2.addCommand(testCommand3);
+		testStep2.addCommand(testCommand4);
+		
+		
+		//Sequence File requires(HashMap<String,String> info, LinkedList<GridInfo> grids, LinkedList<Step> steps)
+		HashMap<String, String> info = new HashMap<String, String>();
+		info.put("Author", "Luis Puche");
+		info.put("Type", "Standard");
+		info.put("Name", "FirstSave");
+		
+		LinkedList<GridInfo> grids = new LinkedList<GridInfo>();
+		grids.add(new GridInfo("North", 10, 8));
+		grids.add(new GridInfo("South", 14, 12));
+		
+		LinkedList<Step> steps = new LinkedList<Step>();
+		steps.add(testStep);
+		steps.add(testStep2);
+		
+		
+		
+		SequenceFile SeqFil = new SequenceFile(info,grids,steps);
+		
+		//SeqFil.exportFile("testOut.xml");
+		assertEquals("Proper output achieved", 1 , SeqFil.exportFile("testOut.xml"));
+		
+	}
+
+}

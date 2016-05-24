@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_45" class="java.beans.XMLDecoder">
+ <object class="skillcourt.SequenceFile" id="SequenceFile0">
+  <void property="info">
+   <void method="put">
+    <string>SequenceNam</string>
+    <string>tset</string>
+   </void>
+   <void method="put">
+    <string>Author</string>
+    <null/>
+   </void>
+  </void>
+ </object>
+</java>
