@@ -9,6 +9,13 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,6 +26,14 @@ public class SkillCourt {
     SequenceFile loadedSequence = new SequenceFile();
     Boolean sequenceLoaded = false;
     String SequenceName;
+    
+    final Object[] loginOptions = {
+            "Login",
+            "Create Account",
+            "Forgot Password",
+            "Exit"
+
+    };
 
     final Object[] mainOptions = {
         "Create",
@@ -48,6 +63,28 @@ public class SkillCourt {
         loadedSequence = file;
         sequenceLoaded = true;
         SequenceName = filename;
+    }
+    
+    public void loginMenu() throws Exception {
+        String message = "Welcome to SkillCourt Please login or create an account";
+        
+        int selection = JOptionPane.showOptionDialog(null,
+                message,
+                "SkillCourt SH v1",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.DEFAULT_OPTION,
+                null,
+                loginOptions,
+                loginOptions[0]);
+        
+        if(selection == 0)
+            login(); //Need account verification on database
+        else if(selection == 1)
+            mainMenu(); // No Implementation for Create Account yet
+        else if(selection == 2)
+            mainMenu(); //No implementation for Forgot Password yet
+        else if(selection == 3)
+            System.exit(0);
     }
 
     public void mainMenu() throws Exception {
@@ -79,7 +116,22 @@ public class SkillCourt {
         }else{
             System.exit(0);
         }
-
+    }
+    
+    public void login()
+    {    
+        try {
+            String host = "jdbc:derby://localhost:1527/SkillCourtUser";
+            String userName = "Username";
+            String password = "password";
+            Connection con = DriverManager.getConnection(host, userName, password);
+            Statement stmt = con.createStatement();
+            String SQL = "SELECT * FROM USERNAME.USERS";
+            ResultSet rs = stmt.executeQuery(SQL);
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(SkillCourt.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void run() throws Exception {
@@ -101,9 +153,7 @@ public class SkillCourt {
 
     }
 
-    public void create() throws Exception {
-
-        
+    public void create() throws Exception {    
 
         //Start of details
         String sequenceName = JOptionPane.showInputDialog("Enter the sequence name: ");
@@ -275,7 +325,7 @@ public class SkillCourt {
     public static void main(String[] args) throws Exception {
 
         SkillCourt run = new SkillCourt();
-        run.mainMenu();
+        run.loginMenu();
 
     }
 }
