@@ -26,6 +26,8 @@ public class SkillCourt {
     SequenceFile loadedSequence = new SequenceFile();
     Boolean sequenceLoaded = false;
     String SequenceName;
+    String loginName;
+    String loginPass;
     
     final Object[] loginOptions = {
             "Login",
@@ -80,7 +82,7 @@ public class SkillCourt {
         if(selection == 0)
             login(); //Need account verification on database
         else if(selection == 1)
-            mainMenu(); // No Implementation for Create Account yet
+            createAccount(); // No Implementation for Create Account yet
         else if(selection == 2)
             mainMenu(); //No implementation for Forgot Password yet
         else if(selection == 3)
@@ -91,9 +93,9 @@ public class SkillCourt {
 
         String message;
         if (sequenceLoaded) {
-            message = "Make your selection: \nA Sequence is loaded";
+            message = "Hello " + loginName + ",\nMake your selection: \nA Sequence is loaded";
         } else {
-            message = "Make your selection: ";
+            message = "Hello " + loginName + ",\nMake your selection: ";
         }
 
         int selection = JOptionPane.showOptionDialog(null,
@@ -118,9 +120,11 @@ public class SkillCourt {
         }
     }
     
-    public void login()
-    {    
+    public void login () throws Exception {    
         try {
+            loginName = JOptionPane.showInputDialog("Username: ");
+            loginPass = JOptionPane.showInputDialog("Password: ");  
+            Boolean loginSuccess = false;
             String host = "jdbc:derby://localhost:1527/SkillCourtUser";
             String userName = "Username";
             String password = "password";
@@ -128,11 +132,50 @@ public class SkillCourt {
             Statement stmt = con.createStatement();
             String SQL = "SELECT * FROM USERNAME.USERS";
             ResultSet rs = stmt.executeQuery(SQL);
+            
+            while(rs.next())
+            {
+                if(rs.getString("USERNAME").equals(loginName) && rs.getString("PASSWORD").equals(loginPass))
+                {
+                    JOptionPane.showMessageDialog(null, "Succefully Logged in!");
+                    loginSuccess = true;
+                    mainMenu();
+                    break;
+                }            
+            }
+            if(!loginSuccess)
+            {
+                JOptionPane.showMessageDialog(null, "Login failed.");
+                loginMenu();
+            }
+            
         } 
         catch (SQLException ex) {
             Logger.getLogger(SkillCourt.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void createAccount() throws Exception {
+       try {         
+            String host = "jdbc:derby://localhost:1527/SkillCourtUser";
+            String userName = "Username";
+            String password = "password";
+            String newName = JOptionPane.showInputDialog("Enter desired username: ");
+            String newPass = JOptionPane.showInputDialog("Enter desired password: ");
+            Connection con = DriverManager.getConnection(host, userName, password);
+            Statement stmt = con.createStatement();
+            String SQL = "INSERT INTO USERNAME.USERS (USERNAME, PASSWORD)\nVALUES (" + "'" + newName + "'" + "," + "'" + newPass + "'" + ")";
+            stmt.executeUpdate(SQL);
+            JOptionPane.showMessageDialog(null, "Account succefully added using query:\n" + SQL);
+            loginMenu();
+       } 
+       catch (SQLException ex) {
+            Logger.getLogger(SkillCourt.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+        
+        
+    } 
 
     public void run() throws Exception {
 
