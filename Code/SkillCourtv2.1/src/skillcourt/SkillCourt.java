@@ -84,7 +84,7 @@ public class SkillCourt {
         else if(selection == 1)
             createAccount(); 
         else if(selection == 2)
-            recoverPassword(); //No implementation for Forgot Password yet
+            recoverPassword(); 
         else if(selection == 3)
             System.exit(0);
     }
@@ -148,7 +148,6 @@ public class SkillCourt {
                 JOptionPane.showMessageDialog(null, "Login failed.");
                 loginMenu();
             }
-            
         } 
         catch (SQLException ex) {
             Logger.getLogger(SkillCourt.class.getName()).log(Level.SEVERE, null, ex);
