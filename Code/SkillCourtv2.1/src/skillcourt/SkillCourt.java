@@ -80,11 +80,11 @@ public class SkillCourt {
                 loginOptions[0]);
         
         if(selection == 0)
-            login(); //Need account verification on database
+            login(); 
         else if(selection == 1)
-            createAccount(); // No Implementation for Create Account yet
+            createAccount(); 
         else if(selection == 2)
-            mainMenu(); //No implementation for Forgot Password yet
+            recoverPassword(); //No implementation for Forgot Password yet
         else if(selection == 3)
             System.exit(0);
     }
@@ -172,10 +172,28 @@ public class SkillCourt {
        catch (SQLException ex) {
             Logger.getLogger(SkillCourt.class.getName()).log(Level.SEVERE, null, ex);
         } 
-        
-        
-        
-    } 
+              
+    }
+    
+    public void recoverPassword() throws Exception{
+         try {         
+            String host = "jdbc:derby://localhost:1527/SkillCourtUser";
+            String userName = "Username";
+            String password = "password";
+            String recoveryAccount = JOptionPane.showInputDialog("Enter username of account for recovery: ");
+            Connection con = DriverManager.getConnection(host, userName, password);
+            Statement stmt = con.createStatement();
+            String SQL = "SELECT USERS.PASSWORD FROM USERNAME.USERS WHERE USERS.USERNAME = " + "'" + recoveryAccount + "'";
+            ResultSet rs = stmt.executeQuery(SQL);
+            rs.next();
+            JOptionPane.showMessageDialog(null, "Your password is: " + rs.getString("PASSWORD"));
+            
+            loginMenu();
+       } 
+       catch (SQLException ex) {
+            Logger.getLogger(SkillCourt.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
 
     public void run() throws Exception {
 
